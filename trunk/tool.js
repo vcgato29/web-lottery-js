@@ -1,6 +1,7 @@
 // 外部植入js
 // var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://web-lottery-js.googlecode.com/svn/trunk/tool.js';
 // document.body.appendChild(sc);
+// flushSpPointGame(true,0.25,8,1.8);
 
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
