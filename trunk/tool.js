@@ -1,3 +1,9 @@
+// 外部植入js
+// var sc=document.createElement("script");sc.type='text/javascript';sc.src='https://web-lottery-js.googlecode.com/svn/trunk/tool.js';
+// document.appendChild(sc);
+// document.append
+
+
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
 
@@ -10,14 +16,19 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum){
 	for(var i=0;i<trList.length;i++){
 		var spanList=trList[i].getElementsByTagName("span");
 		var sumSpNum=0;
+		var stop=false;
 		for(var j=0;j<spanList.length;j++){
 			var spNum=parseFloat(spanList[j].innerText);
 			if(spNum<minSpNum){
 				//过滤最小Sp值
 				$(trList[i].parentElement).hide();
+				stop=true;
 				break;
 			}
 			sumSpNum+=spNum;
+		}
+		if(stop){
+			continue;
 		}
 		
 		if(sumSpNum!=null){
