@@ -1,8 +1,6 @@
 // 外部植入js
-// var sc=document.createElement("script");sc.type='text/javascript';sc.src='https://web-lottery-js.googlecode.com/svn/trunk/tool.js';
-// document.appendChild(sc);
-// document.append
-
+// var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://web-lottery-js.googlecode.com/svn/trunk/tool.js';
+// document.body.appendChild(sc);
 
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
@@ -105,4 +103,5 @@ function makeVoteStr(gameList){
 	}
 	
 }
+
 
