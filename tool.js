@@ -1,11 +1,12 @@
 // 外部植入js
-// var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://web-lottery-js.googlecode.com/svn/trunk/tool.js';
-// document.body.appendChild(sc);
-// flushSpPointGame(true,0.25,8,1.8);
+// var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://web-lottery-js.googlecode.com/svn/trunk/tool.js';document.body.appendChild(sc);
 
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
 
+function calRun(){
+  flushSpPointGame(true,0.25,8,1.8);
+}
 
 //过滤sp占整个Sp和值的百分点
 function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum){
