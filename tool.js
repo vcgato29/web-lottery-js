@@ -5,7 +5,7 @@ var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
 
 function calRun(){
-  flushSpPointGame(true,0.25,8,1.8);
+  flushSpPointGame(true,0.1,10,1.5);
 }
 
 //过滤sp占整个Sp和值的百分点
