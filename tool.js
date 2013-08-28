@@ -110,4 +110,16 @@ function makeVoteStr(gameList){
    
 }
 
+function calSumMoney(){
+
+   var list=$(".biaoge6");
+   var sum=0;
+   for(var i=0;i<list.length;i++){
+      var str=$(list[i]).html();
+      if(str.indexOf("￥")==0){
+         sum+=parseFloat(str.substr(1));
+      }
+   }
+   console.debug(sum);
+}
 
