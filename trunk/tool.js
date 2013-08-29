@@ -44,6 +44,7 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
          sumSpNum+=spNum;
       }
       if(stop){
+         $(trList[i].parentElement).hide();
          continue;
       }
       
