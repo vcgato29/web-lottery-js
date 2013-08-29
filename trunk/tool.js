@@ -29,12 +29,15 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
                firstNum=firstNum>spNum ? firstNum:spNum;break;
             case 2:
                firstNum=firstNum<spNum ? firstNum:spNum;
+               console.debug(2+'  '+firstNum);
                if(firstNum<secondSpMinNum){
                   stop=true;
                }
                break;
          }
-
+         if(stop){
+            break;
+         }
          if(spNum<minSpNum){
             //过滤最小Sp值
             $(trList[i].parentElement).hide();
