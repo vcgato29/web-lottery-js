@@ -104,7 +104,7 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
 
    }
 
-   showBox(gameTTList);
+   //showBox(gameTTList);
    makeVoteStr(gamePlayArray);
 
 }
