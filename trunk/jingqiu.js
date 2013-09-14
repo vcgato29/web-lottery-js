@@ -5,7 +5,7 @@ function fetch(){
 	var size=0;
 	var trList=$("#livescoreTB tr");
 	for(var i=0;i<trList.length;i++){
-		var obj=trList[0];
+		var obj=trList[i];
 		var id=getId(obj);
 		var tdLen=$("#"+id+" td").length;
 		if(tdLen>2){
