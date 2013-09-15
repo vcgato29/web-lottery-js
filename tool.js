@@ -6,13 +6,13 @@ var BRQ_NAME='brqTr';
 var DATA_MAP={}
 
 var sc=document.createElement("script");sc.type='text/javascript';
-sc.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/core.js';
+sc.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/game.js';
 sc.charset="gb2312";
 document.body.appendChild(sc);
 
 var DATA_MAP={}
 var sc2=document.createElement("script");sc2.type='text/javascript';
-sc2.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/dmap.js';
+sc2.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/gamename.js';
 sc2.charset="gb2312";
 document.body.appendChild(sc2);
 
@@ -98,7 +98,16 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
       var game22={gameId:gameId,home:home,visit:visit};
       gameTTList.push(game22);
       gamePlayArray.push(trList[i].parentElement.id);
-
+      var jinqiu=$("#"+trList[i].parentElement.id).attr("jinqing");
+     
+      if(jinqiu!=1){
+         var data_temp=getGame(home,visit);
+         if(data_temp!=null){
+            $("#"+trList[i].parentElement.id).attr({jinqing:1});
+            $("#"+trList[i].parentElement.id+" td .white").append($(data_temp));
+         }
+      }
+      
       
       $(trList[i].parentElement).show();
 
@@ -172,6 +181,16 @@ function calSumMoney(){
    console.debug(sum);
 }
 
+function getGame(home,visit){
+   for(var i=0;i<DATA_GAME_NAME.length;i++){
+      var name=DATA_GAME_NAME[i];
+      if(name.indexOf(home)>=0 || name.indexOf(visit)>=0){
+         return DATA_GAME_LIST[i][9];
+      }
+   }
+   return null;
+}
+
 function getId(obj){
    var id=obj.id;
    if(id==''){
@@ -198,6 +217,8 @@ function createGameDiv(game){
     $("#"+id).append('<td>0赢</td>');
     $("#"+id).append('<td>0平</td>');
     $("#"+id).append('<td>0输</td>');
+
+    $("#"+id).attr({home:game.home,visit:game.visit});
    }
    
 
@@ -231,11 +252,6 @@ function refreshData(){
 
       $("#"+tr.id+" td")[7].innerHTML=homeAllJf+'<br/>'+visitAllJf;
 
-      
-
-      if(objData==undefined){
-         addDuiJs();
-      }
    }
 }
 
@@ -245,7 +261,7 @@ function initDiv(){
       return;
     }
     document.body.appendChild($('<div id="divTemplate"></div>')[0]);
-    $("#divTemplate").append('<div style="padding:15px;"><span>数据计算中心</span><a href="javascript:closeBox();" style="float:right;">关闭</a></div>');
+    $("#divTemplate").append('<div style="padding:15px;"><span>数据计算中心</span><a href="javascript:refreshData();" style="float:right;">刷新</a><a href="javascript:closeBox();" style="float:right;">关闭</a></div>');
     $("#divTemplate").css({width:'60%',height:'450px',margin:'30px auto',background:'#EEE',border:'10px solid #ccc',fontSize:'16px'});
     $("#divTemplate").hide();
     
