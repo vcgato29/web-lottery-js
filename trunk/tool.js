@@ -118,16 +118,21 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
 
 }
 
+var numArray=[0];
+var notInDay='7,1';
+var oldgamelist=null;
 function makeVoteStr(gameList){
    //生成投注文件
-   var numArray=[0,1,3];
    var content='';
+
+   gameList=flushGameDate(gameList);
+   console.debug("flush len:"+gameList.length);
    while(true){
       if(gameList.length<2){
          console.debug(content);
          break;
       }
-      console.debug(gameList);
+      // console.debug(gameList);
       var game1=gameList[0];
       gameList.splice(0,1);
       var game2Index=Math.round(Math.random()*99999999)%gameList.length;
@@ -148,7 +153,7 @@ function makeVoteStr(gameList){
          var playNum=game1.substr(8);
 
          for(var j=0;j<numArray.length;j++){
-            console.debug(game2)
+            // console.debug(game2)
             var game2DateStr=game2.substr(0,8);
             var game2Date=new Date();
             game2Date.setYear(game2DateStr.substr(0,4));
@@ -166,6 +171,35 @@ function makeVoteStr(gameList){
 
    }
    
+}
+
+function flushGameDate(gamelist){
+   var len=gamelist.length;
+   var i=0;
+   for(;i<len-1;){
+      var game2=gamelist[i];
+      var game2DateStr=game2.substr(0,8);
+      var game2Date=new Date();
+      game2Date.setYear(game2DateStr.substr(0,4));
+      game2Date.setMonth(parseInt(game2DateStr.substr(4,2))-1);
+      game2Date.setDate(game2DateStr.substr(6,2));
+      var game2Day=game2Date.getDay();
+      game2Day=game2Day==0 ? 7:game2Day;
+      // var playNum2=game2.substr(8);
+      console.debug('game2Day:'+game2Day+'  len:'+gamelist.length+'  i:'+i);
+      if(notInDay.indexOf(game2Day)>=0){
+         len=gamelist.length;
+
+         gamelist.splice(i,1);
+         i=0;
+      }
+      else{
+         i++ 
+      }
+     
+   }
+
+   return gamelist;
 }
 
 function calSumMoney(){
