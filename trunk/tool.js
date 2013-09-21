@@ -18,7 +18,8 @@ document.body.appendChild(sc2);
 
 
 function calRun(){
-  flushSpPointGame(true,0.1,10,1.5,3);
+  // flushSpPointGame(true,0.1,10,1.5,3);
+   flushSpPointGame(false,0.2,8,2,2.5);
 }
 
 var gamePlayArray=[];
