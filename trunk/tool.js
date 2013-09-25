@@ -122,6 +122,8 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
 var numArray=[0];
 var notInDay='7,1';
 var oldgamelist=null;
+var ballSOL='3,0;0,0;0,0;';
+var ballSOL2='0,3;0,0;0,0;';
 function makeVoteStr(gameList){
    //生成投注文件
    var content='';
@@ -136,7 +138,7 @@ function makeVoteStr(gameList){
       // console.debug(gameList);
       var game1=gameList[0];
       gameList.splice(0,1);
-      var game2Index=Math.round(Math.random()*99999999)%gameList.length;
+      var game2Index=makeLuckNum()%gameList.length;
       console.debug(game2Index);
       var game2=gameList[game2Index];
       gameList.splice(game2Index,1);
@@ -165,7 +167,7 @@ function makeVoteStr(gameList){
             var playNum2=game2.substr(8);
 
             content+=game1Day+playNum+':['+numArray[i]+']/'+game2Day+playNum2+':['+numArray[j]+']\n';
-
+            console.debug(game1Day+playNum+','+game2Day+playNum2);
          }
 
       }
@@ -173,7 +175,14 @@ function makeVoteStr(gameList){
    }
    
 }
-
+var lucknum=888888888;
+function makeLuckNum(){
+  var lknum=0;
+  for(var i=0;i<lucknum;i++){
+    lknum=Math.round(Math.random()*lucknum);
+  }
+  return lknum;
+}
 function flushGameDate(gamelist){
    var len=gamelist.length;
    var i=0;
