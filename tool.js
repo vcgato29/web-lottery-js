@@ -132,8 +132,9 @@ function makeVoteStr(gameList){
    console.debug("flush len:"+gameList.length);
    while(true){
       if(gameList.length<2){
-         console.debug(content);
+         //console.debug(content);
          console.debug(gameidlist);
+         printSOL(gameidlist);         
          break;
       }
       // console.debug(gameList);
@@ -176,6 +177,26 @@ function makeVoteStr(gameList){
    }
    
 }
+
+function printSOL(idstr) {
+	var idArray = idstr.split(',');
+	var ballSol = '[0]-[0],[0]-[0],[3]-[0]';
+	var ballSol2 = '[0]-[0],[0]-[0],[0]-[3]';
+
+	var ballStr = '';
+	var flag = true;
+	for (var i = 0; i < idArray.length; i++) {
+		var playedArray = idArray[i].split('-');
+		var ballArray = flag ? ballSol.split(',') : ballSol2.split(',');
+		flag = !flag;
+		for (var j = 0; j < ballArray.length; j++) {
+			var tempArray = ballArray[j].split('-');
+			ballStr += playedArray[0] + ':' + tempArray[0] + '/' + playedArray[1] + ':' + tempArray[1] + '\n';
+		}
+	}
+	console.debug(ballStr);
+}
+
 var lucknum=88888;
 function makeLuckNum(){
   var lknum=0;
