@@ -132,14 +132,14 @@ function makeVoteStr(gameList){
    console.debug("flush len:"+gameList.length);
    while(true){
       if(gameList.length<2){
-         console.debug(content);
+         //console.debug(content);
          break;
       }
       // console.debug(gameList);
       var game1=gameList[0];
       gameList.splice(0,1);
       var game2Index=makeLuckNum()%gameList.length;
-      console.debug(game2Index);
+      //console.debug(game2Index);
       var game2=gameList[game2Index];
       gameList.splice(game2Index,1);
 
