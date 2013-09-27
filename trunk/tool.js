@@ -170,7 +170,10 @@ function makeVoteStr(gameList){
             var playNum2=game2.substr(8);
 
             content+=game1Day+playNum+':['+numArray[i]+']/'+game2Day+playNum2+':['+numArray[j]+']\n';
-            gameidlist+=game1Day+playNum+'-'+game2Day+playNum2+',';
+           if(gameidlist.length>0){
+             gameidlist+=',';
+           }
+            gameidlist+=game1Day+playNum+'-'+game2Day+playNum2;
          }
 
       }
