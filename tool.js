@@ -46,6 +46,7 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
         console.debug(rqnum);
         rqnum=rqnum.replace('+','');
         if(parseInt(rqnum)>maxRq){
+          console.debug('remove td '+rqnum);
           continue;
         }
       }
