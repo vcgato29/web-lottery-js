@@ -20,7 +20,7 @@ document.body.appendChild(sc2);
 function calRun(){
   // flushSpPointGame(true,0.1,10,1.5,3);
   // flushSpPointGame(false,0.2,8,2,2.5);
-   flushSpPointGame(true,0.2,6,2,2.2);
+  flushSpPointGame(true,0.16,6,1.7,1.8);
 }
 
 var gamePlayArray=[];
@@ -194,8 +194,8 @@ function makeVoteStr(gameList){
 
 function printSOL(idstr) {
 	var idArray = idstr.split(',');
-	var ballSol = '[0]-[0],[0]-[0],[3]-[0]';
-	var ballSol2 = '[0]-[0],[0]-[0],[0]-[3]';
+	var ballSol = '[0]-[0],[0]-[0],[3]-[0],[0]-[1]';
+	var ballSol2 = '[0]-[0],[0]-[0],[0]-[3],[1]-[0]';
 
 	var ballStr = '';
 	var flag = true;
