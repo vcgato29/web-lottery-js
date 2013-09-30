@@ -25,6 +25,7 @@ function calRun(){
 
 var gamePlayArray=[];
 var gameTTList=[];
+var maxRq=0;
 
 //过滤sp占整个Sp和值的百分点
 function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum){
@@ -39,7 +40,14 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
       var gameId=$(trList[i].parentElement)[0].id;
       var home=$("#"+gameId+" tr td")[4].title;
       var visit=$("#"+gameId+" tr td")[6].title;
-
+      
+      var rqnum= $("#"+gameId+" td[name='rq_td'] strong").html();
+      if(rqnum!=null){
+        if(parseInt(rqnum)>maxRq){
+          continue;
+        }
+      }
+      
       var sumSpNum=0;
       var stop=false;
       var firstNum=null;
