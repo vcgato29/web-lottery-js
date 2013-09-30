@@ -43,7 +43,9 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
       
       var rqnum= $("#"+gameId+" td[name='rq_td'] strong").html();
       if(rqnum!=null){
+        rqnum=rqnum.replace('+','');
         if(parseInt(rqnum)>maxRq){
+          console.debug(rqnum);
           continue;
         }
       }
