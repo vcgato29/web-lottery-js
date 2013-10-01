@@ -133,8 +133,7 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
 var numArray=[0];
 var notInDay='7,1';
 var oldgamelist=null;
-var ballSOL='3,0;0,0;0,0;';
-var ballSOL2='0,3;0,0;0,0;';
+
 function makeVoteStr(gameList){
    //生成投注文件
    var content='';
@@ -192,10 +191,12 @@ function makeVoteStr(gameList){
    
 }
 
+var ballSol = '[0]-[0],[0]-[0],[3]-[0],[0]-[3]';
+ var ballSol2 = '[0]-[0],[0]-[0],[0]-[1],[1]-[0]';
+   
 function printSOL(idstr) {
 	var idArray = idstr.split(',');
-	var ballSol = '[0]-[0],[0]-[0],[3]-[0],[0]-[1]';
-	var ballSol2 = '[0]-[0],[0]-[0],[0]-[3],[1]-[0]';
+
 
 	var ballStr = '';
 	var flag = true;
@@ -250,7 +251,7 @@ function flushGameDate(gamelist){
 
 function calSumMoney(){
 
-   var list=$(".biaoge6");
+   var list=$("td");
    var sum=0;
    for(var i=0;i<list.length;i++){
       var str=$(list[i]).html();
