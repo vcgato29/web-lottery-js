@@ -131,7 +131,7 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
 }
 
 var numArray=[0];
-var notInDay='7,1';
+var notInDay='';
 var oldgamelist=null;
 
 function makeVoteStr(gameList){
@@ -192,7 +192,7 @@ function makeVoteStr(gameList){
 }
 
 var ballSol = '[0]-[0],[0]-[0],[3]-[0],[0]-[3]';
- var ballSol2 = '[0]-[0],[0]-[0],[0]-[1],[1]-[0]';
+var ballSol2 = '[0]-[0],[0]-[0],[0]-[1],[1]-[0]';
    
 function printSOL(idstr) {
 	var idArray = idstr.split(',');
@@ -212,7 +212,7 @@ function printSOL(idstr) {
 	console.debug(ballStr);
 }
 
-var lucknum=88888;
+var lucknum=888888;
 function makeLuckNum(){
   var lknum=0;
   for(var i=0;i<lucknum;i++){
