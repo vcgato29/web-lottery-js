@@ -4,7 +4,8 @@
 //http://code.jquery.com/jquery-latest.js
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
-var DATA_MAP={}
+var DATA_MAP={};
+var mingci={};
 
 var sc=document.createElement("script");sc.type='text/javascript';
 sc.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/game.js';
@@ -179,6 +180,12 @@ function makeVoteStr(gameList){
             var game2Day=game2Date.getDay();
             game2Day=game2Day==0 ? 7:game2Day;
             var playNum2=game2.substr(8);
+
+            var mingciNum=$(mingci).attr(game1Day+''+playNum);
+            $("#"+game1+' td')[5].innerHTML=mingciNum;
+
+            var mingciNum2=$(mingci).attr(game2Day+''+playNum2);
+            $("#"+game2+' td')[5].innerHTML=mingciNum2;
 
             content+=game1Day+playNum+':['+numArray[i]+']/'+game2Day+playNum2+':['+numArray[j]+']\n';
            if(gameidlist.length>0){
@@ -367,7 +374,7 @@ function initDiv(){
 
     init=true;
 }
-initDiv();
+// initDiv();
 
 
 function showBox(gamelist){
