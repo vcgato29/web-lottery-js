@@ -1,6 +1,7 @@
 // 外部植入js
 // var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://web-lottery-js.googlecode.com/svn/trunk/tool.js';document.body.appendChild(sc);
-
+// var sc=document.createElement("script");sc.type='text/javascript';sc.src='http://code.jquery.com/jquery-latest.js';document.body.appendChild(sc);
+//http://code.jquery.com/jquery-latest.js
 var RQ_NAME='rqTr';
 var BRQ_NAME='brqTr';
 var DATA_MAP={}
