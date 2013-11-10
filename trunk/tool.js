@@ -8,15 +8,15 @@ var DATA_MAP={};
 var mingci={};
 
 var sc=document.createElement("script");sc.type='text/javascript';
-sc.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/game.js';
-sc.charset="gb2312";
+sc.src='http://web-lottery-js.googlecode.com/svn/trunk/make_ticket.js';
+// sc.charset="gb2312";
 document.body.appendChild(sc);
 
 var DATA_MAP={}
 var sc2=document.createElement("script");sc2.type='text/javascript';
-sc2.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/gamename.js';
-sc2.charset="gb2312";
-document.body.appendChild(sc2);
+// sc2.src='http://web-lottery-js.googlecode.com/svn/trunk/data/ft/gamename.js';
+// sc2.charset="gb2312";
+// document.body.appendChild(sc2);
 
 
 function calRun(){
@@ -113,15 +113,15 @@ function flushSpPointGame(flag,minSpPointNum,minSumSpNum,minSpNum,secondSpMinNum
       var game22={gameId:gameId,home:home,visit:visit};
       gameTTList.push(game22);
       gamePlayArray.push(trList[i].parentElement.id);
-      var jinqiu=$("#"+trList[i].parentElement.id).attr("jinqing");
+      // var jinqiu=$("#"+trList[i].parentElement.id).attr("jinqing");
      
-      if(jinqiu!=1){
-         var data_temp=getGame(home,visit);
-         if(data_temp!=null){
-            $("#"+trList[i].parentElement.id).attr({jinqing:1});
-            $("#"+trList[i].parentElement.id+" td .white").append($(data_temp));
-         }
-      }
+      // if(jinqiu!=1){
+      //    var data_temp=getGame(home,visit);
+      //    if(data_temp!=null){
+      //       $("#"+trList[i].parentElement.id).attr({jinqing:1});
+      //       $("#"+trList[i].parentElement.id+" td .white").append($(data_temp));
+      //    }
+      // }
       
       
       $(trList[i].parentElement).show();
@@ -147,7 +147,8 @@ function makeVoteStr(gameList){
       if(gameList.length<2){
          //console.debug(content);
          console.debug(gameidlist);
-         printSOL(gameidlist);         
+         // printSOL(gameidlist);
+         make(gameidlist.trim().replace(/-/g,','));         
          break;
       }
       // console.debug(gameList);
