@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=7"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="mysvg.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+  
+  <link rel="stylesheet" href="xcharts.css" type="text/css">
+  <style type="text/css">
+    
+    .px_div{width:2px;height:2px;float:left;background-color: #FFF;}
+    .px_span{width:2px;height:2px;float:left;background-color: #FFF;display:block;}
+    .px_line{width:2pt;height:2pt;position:absolute;}
+
+    .br_div{clear:none;height:2px;}
+    .br_p{clear:both;height:2px;}
+
+    .line{background-color: #EEE;}
+
+
+
+    .color1{background-color:#3880aa}
+    .color2{background-color:rgba(77, 169, 68, 0.1);}
+    .color3{background-color:#4da944;}
+    .color4{background-color:rgba(56, 128, 170, 0.1);}
+    
+    .absolute_div{position:absolute;}
+    
+    ul li{list-style:none;float:left;height:40px;}
+  </style>
+</head>
+<body>
+
+<h1>图表测试</h1>
+
+<p>
+  <ul id="line">
+   <li><input type="button" onclick="drawNewLine();" value="画一条直线"></li> 
+   <li>X1:<input type="text" id="x1" value="10"></li>
+   <li>Y1:<input type="text" id="y1" value="10"></li> 
+   <li>X2:<input type="text" id="x2" value="90"></li> 
+   <li>Y2<input type="text" id="y2" value="90"></li>  
+  </ul>
+</p>
+<p class="br_p"></p>
+<p>
+  <ul id="rect">
+   <li><input type="button" onclick="drawRect();" value="画一个条形图"></li> 
+   <li>X1:<input type="text" id="x1" value="10"></li>
+   <li>Y1:<input type="text" id="y1" value="10"></li> 
+   <li>X2:<input type="text" id="x2" value="90"></li> 
+   <li>Y2:<input type="text" id="y2" value="90"></li>  
+  </ul>
+</p>
+
+<div style="width:900px;height:500px;margin:auto auto;margin-top:100px;">
+  <div id="chart"></div>
+</div>
+
+
+
+<script type="text/javascript">
+  
+  var newCanvas=null;
+  $(document).ready(function(){
+
+    //初始化新的图表画布
+    newCanvas=new MockCanvas({
+      id:'chart',//画布容器id
+      height:150,//画布高度单位
+      width:300,//画布宽度单位
+      xKedu:{size:6,map:{1:'1月',2:'2月',3:'3月',4:'4月',5:'5月',6:'6月'}},
+      yKedu:{size:7,map:{1:'1000',2:'2000',3:'3000',4:'4000',5:'5000',6:'6000'}}
+
+    });
+  });
+
+
+  function drawNewLine(){
+   //画直线
+   var x1=parseInt($("#line #x1").val());
+   var y1=parseInt($("#line #y1").val());
+   var x2=parseInt($("#line #x2").val());
+   var y2=parseInt($("#line #y2").val());
+   newCanvas.printZhiLine(x1,y1,x2,y2,'#4da944');
+
+  }
+
+  function drawRect(){
+   //画矩形
+   var x1=parseInt($("#rect #x1").val());
+   var y1=parseInt($("#rect #y1").val());
+   var x2=parseInt($("#rect #x2").val());
+   var y2=parseInt($("#rect #y2").val());
+   newCanvas.printRect(x1,x2,y1,y2,'#3880aa');
+  }
+
+</script>
+</body>
+</html>
