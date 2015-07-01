@@ -1,0 +1,1 @@
+this is a lottery tool project
